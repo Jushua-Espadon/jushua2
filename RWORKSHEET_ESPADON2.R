@@ -57,7 +57,37 @@ data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers)
 names(data) <- c("Length", "Sum", "Mean", "Median", "Variance", "StandardDev", "Min", "Max")
 data
 
-#8. 
+#Number 8 
+#A.
+TopCelebrity <- data.frame (
+  PowerRanking = 1:25,
+  CelebrityName = c("Tom Cruise" , "Rolling Stones", "Oprah Winfrey", "U2","Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant"),
+  Pay = c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+)
+TopCelebrity
+
+#B
+NewRanking <- replace(TopCelebrity$PowerRanking, 19, 15)
+NewRanking
+NewPay <- replace(TopCelebrity$Pay, 19, 90)
+NewPay
+
+Newtopceleb <- data.frame(
+  PowerRanking = NewRanking,
+  CelebrityName = TopCelebrity$CelebrityName,  
+  Pay = NewPay
+)
+Newtopceleb
+#C
+install.packages("writexl")
+library(writexl)          
+write_xlsx(TopCelebrity, path = "PowerRanking.xlsx")
+write.csv(TopCelebrity, file = "PowerRanking.csv", row.names = FALSE)
+
+#D
+subset_data <- TopCelebrity[10:20, ]
+save(subset_data, file = "Ranks.RData")
+print(subset_data) 
 
 #10.
 #A.
