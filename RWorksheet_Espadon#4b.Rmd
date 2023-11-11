@@ -1,0 +1,68 @@
+---
+title: "Untitled"
+author: "Jushua Espadon"
+date: "2023-11-11"
+output: pdf_document
+---
+
+``` {r num1}
+#num1
+vectorA <- c(1, 2, 3, 4, 5)
+matrixA <- matrix(0, nrow=5, ncol=5)
+
+# Fill the matrix
+for(i in 1:5) {
+  for(j in 1:5) {
+    if(j <= (6 - i)) {
+      matrixA[i,j] <- j - 1
+    }
+  }
+}
+
+# Display the matrix
+print(matrixA)
+```
+```{r num2}
+#num2
+matrixA <- matrix(0,nrow=5, ncol=5)
+
+# Fill the matrix with asterisks
+for(i in 1:5) {
+  for(j in 1:5) {
+    if(j <= i) {
+      matrixA[i, j] <- "*"
+    }
+  }
+}
+
+for (i in 1:5) {
+  for (j in 1:i) {
+    cat("*")
+  }
+  cat("\n")
+}
+```
+```{r num3}
+# get input from user
+n <- readline(prompt = "Enter a number to start the Fibonacci sequence: ")
+
+# convert input string to integer
+n <- as.integer(n)
+
+# initialize variables
+a <- 0
+b <- 1
+
+# print Fibonacci sequence up to 500
+repeat {
+  c <- a + b
+  if (c > 500) {
+    break
+  }
+  if (a >= n) {
+    cat(a, " ")
+  }
+  a <- b
+  b <- c
+}
+```
