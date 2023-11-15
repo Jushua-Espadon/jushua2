@@ -1,0 +1,35 @@
+---
+title: 'Practical Exam in CS 101'
+author: "Jushua Espadon BSIT 2B"
+date: "2023-11-14"
+output: pdf_document
+---
+
+```{r num1}
+#1
+mtcars
+```
+```{r num2}
+#2
+num_observations <-nrow(mtcars)
+num_columns<-ncol(mtcars)
+column_names<-colnames(mtcars)
+
+cat("number of observation",num_observations,"\n")
+cat("number of columns:",num_columns,"\n")
+cat("column names:",column_names,"\n")
+```
+```{r num3}
+num_summary <-summary(mtcars)
+
+structure_info <-str (mtcars)
+
+print("\nStructure of Variables:")
+print(num_summary)
+
+print("\nStructure of variables:")
+print(structure_info)
+```
+
+
+
