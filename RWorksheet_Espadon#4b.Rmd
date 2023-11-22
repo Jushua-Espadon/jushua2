@@ -6,63 +6,162 @@ output: pdf_document
 ---
 
 ``` {r num1}
-#num1
+
 vectorA <- c(1, 2, 3, 4, 5)
-matrixA <- matrix(0, nrow=5, ncol=5)
-
-# Fill the matrix
-for(i in 1:5) {
-  for(j in 1:5) {
-    if(j <= (6 - i)) {
-      matrixA[i,j] <- j - 1
-    }
-  }
-}
-
-# Display the matrix
+matrixA <- matrix(0, nrow = 5, ncol = 5)
 print(matrixA)
-```
-```{r num2}
-#num2
-matrixA <- matrix(0,nrow=5, ncol=5)
-
-# Fill the matrix with asterisks
-for(i in 1:5) {
-  for(j in 1:5) {
-    if(j <= i) {
-      matrixA[i, j] <- "*"
-    }
-  }
-}
 
 for (i in 1:5) {
+  for (j in 1:5) {
+    matrixA[i, j] <- abs(vectorA[i] - vectorA[j])
+  }
+}
+
+print(matrixA)
+
+```
+``` {r num2}
+num_lines <- 5
+
+for (i in 1:num_lines) {
   for (j in 1:i) {
     cat("*")
   }
   cat("\n")
 }
+
 ```
-```{r num3}
-# get input from user
-n <- readline(prompt = "Enter a number to start the Fibonacci sequence: ")
 
-# convert input string to integer
-n <- as.integer(n)
+``` {r num3}
+input_number <- as.numeric(readline("Enter a number to start the Fibonacci sequence: "))
 
-# initialize variables
+assume_number <- 0
 a <- 0
 b <- 1
 
-# print Fibonacci sequence up to 500
 repeat {
-  c <- a + b
-  if (c > 500) {
+
+  if (a > 500) {
     break
   }
-  if (a >= n) {
+ 
+
+  if (a >= assume_number) {
     cat(a, " ")
   }
+ 
+  temp <- a + b
   a <- b
-  b <- c
+  b <- temp
 }
+
+cat("\n")
+
 ```
+
+``` {r num4a}
+shoenga <-  read.csv("Shoe_sizes.csv")
+shoenga
+shoenganga <- shoenga[c(1:6),]
+shoenganga
+```
+
+``` {r num4b}
+female_data <- subset(shoenga, Gender == "F")
+female_data
+male_data <- subset(shoenga, Gender == "M")
+male_data
+nrow(female_data)
+nrow(male_data)
+#They have both 14 observations
+```
+
+``` {r num4c}
+GraphMF<- table(shoenga$Gender)
+barplot(GraphMF,
+        main = "Number of Males and Females",
+        xlab = "Gender",
+        ylab = "Count",
+        col = c("lightblue", "lightyellow"),
+        legend.text = c("Male", "Female"),
+        beside = TRUE
+)
+```
+
+
+```{r num5}
+Expenses <- c(Food = 60, Electricity = 10, Savings = 5, Miscellaneous = 25)
+
+pie(Expenses,
+    labels = paste(names(Expenses), "\n", sprintf("%.1f%%", prop.table(Expenses) * 100)),
+    col = c("gray", "pink", "yellow", "lightgreen"),  
+    main = "Monthly Expenses of the Dela Cruz Family"
+)
+```
+
+```{r num6A}
+
+data("iris")
+str(iris)
+
+#The iris dataset has 150 observations and 5 variables.
+#These variables are the Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, and Species.
+```
+``` {r num6B}
+MeanIris<- colMeans(iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")])
+print(MeanIris)
+```
+
+
+```{r num6C}
+Spec <- table(iris$Species)
+
+clors <- c("darkgreen", "lightpink", "lightgreen")
+
+pie(Spec,
+    labels = paste(names(Spec), "\n", sprintf("%.1f%%", prop.table(Spec) * 100)),
+    col = clors,
+    main = "Species Distribution",
+    cex.main = 1.5,
+    cex = 0.8      
+)
+```
+
+``` {r num6d}
+SetosaSub <- subset(iris, Species == "setosa")
+VersiSub <- subset(iris, Species == "versicolor")
+VirgiSub <- subset(iris, Species == "virginica")
+
+# Display the last six rows of each species
+cat("Last six rows of Setosa:")
+print(tail(SetosaSub))
+
+cat("Last six rows of Versicolor:")
+print(tail(VersiSub))
+
+cat("Last six rows of Virginica:")
+print(tail(VirgiSub))
+```
+
+``` {r num6E}
+
+data(iris)
+
+iris$Species <- as.factor(iris$Species)
+
+plot(iris$Sepal.Length, iris$Sepal.Width,
+     pch = as.integer(iris$Species),
+     col = iris$Species,
+     main = "Iris Dataset",
+     sub = "Sepal width and length",
+     xlab = "Sepal Length",
+     ylab = "Sepal Width"
+)
+```
+
+``` {r num6F}
+#The scatterplot shows similarities between the sepal width and length ranging from 5.5 to 7.0
+```
+
+
+
