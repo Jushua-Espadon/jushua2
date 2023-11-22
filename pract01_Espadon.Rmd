@@ -30,6 +30,41 @@ print(num_summary)
 print("\nStructure of variables:")
 print(structure_info)
 ```
+``` {r num4}
+install.packages("ggplot2")
+library(ggplot2)
 
+
+data <- data.frame(transmission = c("Automatic", "Manual", "Automatic", "Automatic", "Manual", "Manual", "Automatic", "Automatic", "Manual"))
+
+
+ggplot(data, aes(x = transmission)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Transmission Types",
+       x = "Transmission Type",
+       y = "Count")
+
+```
+
+``` {r num5}
+max_mpg_index <- which.max(mtcars$mpg)
+model_highest_mpg <- mtcars$model[max_mpg_index]
+
+
+max_hp_index <- which.max(mtcars$hp)
+model_highest_hp <- mtcars$model[max_hp_index]
+
+cat("Model with the highest mpg:", model_highest_mpg, "\n")
+cat("Car model with the highest horsepower:", model_highest_hp, "\n")
+```
+
+``` {r num6}
+eight_cyl_cars <- mtcars[mtcars$cyl == 8, ]
+
+write.csv(eight_cyl_cars, file = "newCar.csv", row.names = FALSE)
+
+head(eight_cyl_cars, 2)
+
+```
 
 
