@@ -1,5 +1,19 @@
-#1 
+---
+title: "RWorksheet_5"
+author: "Jushua Espadon"
+date: "2023-12-13"
+output: pdf_document
+---
 
+---
+title: "RWorksheet_5"
+author: "Aaron Joshua Tolentino BSIT 2-B"
+date: "2023-12-06"
+output: pdf_document
+---
+
+```{r num1}
+#1.
 student <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 pre_test <- c(55, 54, 47, 57, 51, 61, 57, 54, 63, 58)
 post_test <- c(61, 60, 56, 63, 56, 63, 59, 56, 62, 61)
@@ -19,6 +33,9 @@ if (!requireNamespace("pastecs", quietly = TRUE)) {
 library(Hmisc)
 library(pastecs)
 
+```
+
+```{r num2}
 #2. 
 # Your data
 fertilizer_levels <- c(10, 10, 10, 20, 20, 50, 10, 20, 10, 50, 20, 50, 20, 10)
@@ -32,7 +49,10 @@ print(fertilizer_levels)
 print("Ordered Factor:")
 print(ordered_fertilizer)
 
+```
 
+```{r num3}
+#3.
 #3 You can use a factor to represent the levels undertaken by 10 subjects.
 
 ExrLvl <- c("l", "n", "n", "i", "l", "l", "n", "n", "i", "l")
@@ -40,9 +60,10 @@ ExrLvl <- c("l", "n", "n", "i", "l", "l", "n", "n", "i", "l")
 ExrFact <- factor(ExrLvl, levels = c("n", "l", "i"), labels = c("none", "light", "intense"))
 
 print(ExrFact)
+```
 
-
-#4
+```{r num4}
+#4.
 state <- c("tas", "sa", "qld", "nsw", "nsw", "nt", "wa", "wa", "qld",
            "vic", "nsw", "vic", "qld", "qld", "sa", "tas", "sa", "nt",
            "wa", "vic", "qld", "nsw", "nsw", "wa", "sa", "act", "nsw",
@@ -50,8 +71,10 @@ state <- c("tas", "sa", "qld", "nsw", "nsw", "nt", "wa", "wa", "qld",
 #a. 
 StateFact<- factor(state)
 print(StateFact)
-#The resu;lts provide the different "Levels" provided in the vector.
+#The results provide the different "Levels" provided in the vector.
+```
 
+```{r num5}
 #5.
 incomes <- c(60, 49, 40, 61, 64, 60, 59, 54,
              62, 69, 70, 42, 56, 61, 61, 61, 58, 51, 48,
@@ -62,18 +85,19 @@ incmeans <- tapply(incomes, StateFact, mean)
 print(incmeans)
 
 #b. The results show the mean for each state provided 
+```
 
+```{r num6}
 #6.
-stdError <- function(x) sqrt(var(x)/length(x))
-incster <- tapply(incomes, statef, stdError)
+#stdError <- function(x) sqrt(var(x)/length(x))
+#incster <- tapply(incomes, statef, stdError)
 
 #a. The standard error is that the object 'statef' is not found as the vector was named as 'state'.
-
-
+```
+```{r num7}
 #7.
 install.packages("titanic")
 library(titanic)
-
 data("titanic_train")
 titanic_data <- titanic_train
 
@@ -83,22 +107,27 @@ NotSurvived <- subset(titanic_data, Survived == 0)
 
 print(Survived)
 print(NotSurvived)
+```
 
-#8
+```{r num8}
+#8.
 install.packages("readr")
 library(readr)
-breastcancer_wisconsin <- read_csv("Worksheet#6/breastcancer_wisconsin.csv")
-View(breastcancer_wisconsin)
+breastcancer_wisconsin <- read_csv("/cloud/project/Worksheet#6/breastcancer_wisconsin.csv")
+print(breastcancer_wisconsin)
 
 #a. The dataset is all about the recorded data of people that have breastcancer and its characteristics.
 
 
+```
 
-
-#9
+``` {r num9}
+install.packages("xlsx")
+install.packages("AppliedPredictiveModeling")
 library(xlsx)
-abalone<- read.csv("Worksheet#6/abalone.csv")
+abalone<- read.csv("/cloud/project/Worksheet#6/abalone.csv")
 xlsx::write.xlsx(abalone, "abalone.xls", col.names=TRUE, row.names=TRUE, sheetName="sample")
 library("AppliedPredictiveModeling")
 head(abalone)
 summary(abalone)
+```
